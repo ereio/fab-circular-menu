@@ -94,18 +94,18 @@ class FabCircularMenuState extends State<FabCircularMenu>
         curve: Interval(0.0, 0.4, curve: widget.animationCurve));
     _scaleAnimation = Tween<double>(begin: 0.0, end: 1.0)
         .animate(_scaleCurve as Animation<double>)
-          ..addListener(() {
-            setState(() {});
-          });
+      ..addListener(() {
+        setState(() {});
+      });
 
     _rotateCurve = CurvedAnimation(
         parent: _animationController,
         curve: Interval(0.4, 1.0, curve: widget.animationCurve));
     _rotateAnimation = Tween<double>(begin: 0.5, end: 1.0)
         .animate(_rotateCurve as Animation<double>)
-          ..addListener(() {
-            setState(() {});
-          });
+      ..addListener(() {
+        setState(() {});
+      });
   }
 
   @override
@@ -237,8 +237,8 @@ class FabCircularMenuState extends State<FabCircularMenu>
   }
 
   void _calculateProps() {
-    _ringColor = widget.ringColor ?? Theme.of(context).accentColor;
-    _fabColor = widget.fabColor ?? Theme.of(context).primaryColor;
+    _ringColor = widget.ringColor ?? Theme.of(context).colorScheme.secondary;
+    _fabColor = widget.fabColor ?? Theme.of(context).colorScheme.primary;
     _fabOpenColor = widget.fabOpenColor ?? _fabColor;
     _fabCloseColor = widget.fabCloseColor ?? _fabColor;
     _fabIconBorder = widget.fabIconBorder ?? CircleBorder();
@@ -265,9 +265,9 @@ class FabCircularMenuState extends State<FabCircularMenu>
         ));
     _colorAnimation = ColorTween(begin: _fabCloseColor, end: _fabOpenColor)
         .animate(_colorCurve as Animation<double>)
-          ..addListener(() {
-            setState(() {});
-          });
+      ..addListener(() {
+        setState(() {});
+      });
   }
 
   void open() {
